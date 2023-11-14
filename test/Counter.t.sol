@@ -14,6 +14,13 @@ contract CounterTest is Test {
 
     function test_Increment() public {
         counter.increment();
+        console2.log(msg.sender);
+        //開始
+        vm.startPrank(address(1));
+        console2.log(msg.sender);
+        //結束
+        vm.stopPrank();
+        console2.log(msg.sender);
         assertEq(counter.number(), 1);
     }
 
